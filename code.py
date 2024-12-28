@@ -1,4 +1,4 @@
-//Load the MNIST Dataset
+#Load the MNIST Dataset
 from tensorflow.keras.datasets import mnist
 from tensorflow.keras.utils import to_categorical
 
@@ -11,7 +11,7 @@ X_test = X_test.reshape(-1, 28, 28, 1) / 255.0
 y_train = to_categorical(y_train, 10)
 y_test = to_categorical(y_test, 10)
 
-//Build the Model
+#Build the Model
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 
@@ -25,10 +25,10 @@ model = Sequential([
 
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
-//Train the Model
+#Train the Model
 model.fit(X_train, y_train, epochs=5, batch_size=32, validation_data=(X_test, y_test))
 
-//valuate the Model
+#valuate the Model
 loss, accuracy = model.evaluate(X_test, y_test)
 print(f"Test Accuracy: {accuracy * 100:.2f}%")
 
